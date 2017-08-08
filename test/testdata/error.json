@@ -1,0 +1,99 @@
+{
+  "noDataTemplates": {
+    "sourceData": [
+      {
+        "fileName": "noDataTemplates.json",
+        "content": {
+          "headersTemplate": {
+            "Access-Control-Allow-Credentials": true,
+            "Content-type": "application/json"
+          },
+          "mockFiles": []
+        }
+      }
+    ]
+  },
+  "noHeadersTemplates": {
+    "sourceData": [
+      {
+        "fileName": "noHeadersTemplates.json",
+        "content": {
+          "dataTemplate": {
+            "some": "thing"
+          },
+          "mockFiles": []
+        }
+      }
+    ]
+  },
+  "noMockFiles": {
+    "sourceData": [
+      {
+        "fileName": "noMockFiles.json",
+        "content": {
+          "dataTemplates": {
+            "some": {
+              "thing": "else"
+            },
+            "another": {
+              "thing": "else"
+            }
+          },
+          "headersTemplate": {
+            "default": {
+              "Access-Control-Allow-Credentials": true,
+              "Content-type": "application/json"
+            },
+            "download": {
+              "Content-type": "application/pdf"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "validSourceData": {
+    "sourceData": [
+      {
+        "fileName": "validSourceData.1.json",
+        "content": {
+          "dataTemplate": {
+            "some": "thing"
+          },
+          "headersTemplate": {
+            "Access-Control-Allow-Credentials": true,
+            "Content-type": "application/json"
+          },
+          "mockFiles": [{
+            "fileName": "some.file.name",
+            "expression": "online\/rest\/some\/api\/",
+            "method": "GET",
+            "name": "someScenarioName",
+            "isArray": true,
+            "responses":{}
+          }]
+        }
+      },
+      {
+        "fileName": "validSourceData.2.json",
+        "content": {
+          "dataTemplate": {
+            "another": "thing"
+          },
+          "headersTemplate": {
+            "Access-Control-Allow-Credentials": true,
+            "Content-type": "application/json"
+          },
+          "mockFiles": [{
+            "fileName": "another.file.name",
+            "expression": "online\/rest\/another\/api\/",
+            "method": "DELETE",
+            "name": "anotherScenarioName",
+            "isArray": true,
+            "responses":{}
+          }]
+        }
+      }
+    ]
+  }
+}

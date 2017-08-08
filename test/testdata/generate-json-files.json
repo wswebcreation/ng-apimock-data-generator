@@ -1,0 +1,16 @@
+[
+  {
+    "fileName": "some.thing",
+    "some":"thing"
+  },
+  {
+    "fileName": "another.thing",
+    "another":"thing"
+  },
+  {
+    "fileName": "some.thing.else",
+    "some":{
+      "thing": "else"
+    }
+  }
+]

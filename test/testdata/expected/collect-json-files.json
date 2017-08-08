@@ -1,0 +1,14 @@
+[
+  {
+    "fileName": "another.json",
+    "content": {
+      "another": "thing"
+    }
+  },
+  {
+    "fileName": "some.json",
+    "content": {
+      "some": "thing"
+    }
+  }
+]

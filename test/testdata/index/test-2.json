@@ -1,0 +1,59 @@
+{
+  "dataTemplates": {
+    "string": {
+      "string": "foo && bar"
+    },
+    "number": {
+      "number": 12324
+    }
+  },
+  "headersTemplates": {
+    "1": {
+      "Access-Control-Allow-Methods": "PUT",
+      "Content-type": "application/json"
+    },
+    "2": {
+      "Access-Control-Allow-Origin": "https://www.foo.bar",
+      "Content-type": "application/pdf"
+    }
+  },
+  "mockFiles": [
+    {
+      "fileName": "foo.bar",
+      "expression": "foo.bar.foo",
+      "method": "PUT",
+      "name": "foo.foo",
+      "isArray": true,
+      "responses": {
+        "foo": {
+          "default": true,
+          "status": 200,
+          "data": [
+            {
+              "ng-ApimockDataTemplate": "string"
+            },
+            {
+              "ng-ApimockDataTemplate": "number",
+              "bar": "foo"
+            }
+          ],
+          "headers": {
+            "ng-ApimockHeadersTemplate": "2"
+          }
+        },
+        "bar": {
+          "status": 200,
+          "data": [
+            {
+              "string": "bla foo bar"
+            }
+          ],
+          "headers": {
+            "ng-ApimockHeadersTemplate": "1",
+            "Cache-Control": "no-cache, no-store, must-revalidate"
+          }
+        }
+      }
+    }
+  ]
+}

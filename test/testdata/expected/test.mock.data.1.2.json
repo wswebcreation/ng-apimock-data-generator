@@ -1,0 +1,40 @@
+{
+  "expression": "test.1.2",
+  "method": "GET",
+  "name": "test1.2",
+  "isArray": false,
+  "responses": {
+    "test-scenario-1.2.1": {
+      "default": true,
+      "status": 200,
+      "data": {
+        "some": "thing",
+        "another": "thing"
+      },
+      "headers": {
+        "Access-Control-Allow-Credentials": true,
+        "Content-type": "application/json"
+      }
+    },
+    "test-scenario-1.2.2": {
+      "status": 200,
+      "data": {
+        "number": 1029384756
+      },
+      "headers": {
+        "Access-Control-Allow-Credentials": true,
+        "Content-type": "application/json"
+      }
+    },
+    "test-scenario-1.2.3": {
+      "status": 200,
+      "data": {
+        "number": 1234567890
+      },
+      "headers": {
+        "Access-Control-Allow-Credentials": true,
+        "Content-type": "application/json"
+      }
+    }
+  }
+}

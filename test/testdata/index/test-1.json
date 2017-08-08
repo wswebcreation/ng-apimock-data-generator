@@ -1,0 +1,83 @@
+{
+  "dataTemplate": {
+    "number": 1234567890
+  },
+  "headersTemplate": {
+    "Access-Control-Allow-Credentials": true,
+    "Content-type": "application/json"
+  },
+  "mockFiles": [
+    {
+      "fileName": "test.mock.data.1.1",
+      "expression": "test.1.1",
+      "method": "GET",
+      "name": "test1.1",
+      "isArray": true,
+      "responses": {
+        "test-scenario-1.1.1": {
+          "default": true,
+          "status": 200,
+          "data": [],
+          "headers": {
+            "Access-Control-Allow-Credentials": true,
+            "Content-type": "application/json"
+          }
+        },
+        "test-scenario-1.1.2": {
+          "status": 200,
+          "data": [
+            {
+              "number": 9876543210
+            },
+            {
+              "ng-ApimockDataTemplate": "default"
+            }
+          ],
+          "headers": {
+            "ng-ApimockHeadersTemplate": "default",
+            "Access-Control-Allow-Credentials": false,
+            "Access-Control-Allow-Headers":"authorization"
+          }
+        }
+      }
+    },
+    {
+      "fileName": "test.mock.data.1.2",
+      "expression": "test.1.2",
+      "method": "GET",
+      "name": "test1.2",
+      "isArray": false,
+      "responses": {
+        "test-scenario-1.2.1": {
+          "default": true,
+          "status": 200,
+          "data": {
+            "some": "thing",
+            "another": "thing"
+          },
+          "headers": {
+            "ng-ApimockHeadersTemplate": "default"
+          }
+        },
+        "test-scenario-1.2.2": {
+          "status": 200,
+          "data": {
+            "number": 1029384756
+          },
+          "headers": {
+            "ng-ApimockHeadersTemplate": "default"
+          }
+        },
+        "test-scenario-1.2.3": {
+          "status": 200,
+          "data": {
+            "ng-ApimockDataTemplate": "default"
+          },
+          "headers": {
+            "ng-ApimockHeadersTemplate": "default"
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "name": "ng-apimock-data-generator",
+  "version": "0.0.1",
+  "description": "generate multiple ng-Apimock data files based on single file",
+  "main": "index.js",
+  "scripts": {
+    "coverage": "JASMINE_CONFIG_PATH=test/jasmine.json istanbul cover ./node_modules/.bin/jasmine",
+    "test": "npm run coverage"
+  },
+  "keywords": [
+    "testdata",
+    "mocking",
+    "data",
+    "ng-apimock",
+    "json"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wswebcreation/ng-apimock-data-generator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wswebcreation/ng-apimock-data-generator/issues"
+  },
+  "author": "Wim Selles",
+  "license": "ISC",
+  "dependencies": {
+    "fs-extra": "^4.0.1",
+    "lodash": "^4.17.4"
+  },
+  "devDependencies": {
+    "istanbul": "^0.4.5",
+    "jasmine": "^2.7.0",
+    "jasmine-spec-reporter": "^4.1.1"
+  }
+}

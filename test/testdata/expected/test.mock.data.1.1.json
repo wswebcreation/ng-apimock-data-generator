@@ -1,0 +1,33 @@
+{
+  "expression": "test.1.1",
+  "method": "GET",
+  "name": "test1.1",
+  "isArray": true,
+  "responses": {
+    "test-scenario-1.1.1": {
+      "default": true,
+      "status": 200,
+      "data": [],
+      "headers": {
+        "Access-Control-Allow-Credentials": true,
+        "Content-type": "application/json"
+      }
+    },
+    "test-scenario-1.1.2": {
+      "status": 200,
+      "data": [
+        {
+          "number": 9876543210
+        },
+        {
+          "number": 1234567890
+        }
+      ],
+      "headers": {
+        "Access-Control-Allow-Credentials": false,
+        "Content-type": "application/json",
+        "Access-Control-Allow-Headers": "authorization"
+      }
+    }
+  }
+}
