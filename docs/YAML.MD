@@ -154,4 +154,112 @@ And **foo.bar.2.yml.json**
 
 ## Example template for 1 mockfile
 
-> needs to be writen
+```yaml
+dataTemplates:
+  default:
+    some:
+      thing: else
+    another: thing
+  with-globals:
+    type: 30
+    typeName: Thirty
+    start-event:
+      timestamp: "%%yesterday%%"
+      text: Thirty something
+    end-event:
+      timestamp: "%%today%%"
+      text: Thirty something
+headersTemplates:
+	default:
+      Access-Control-Allow-Credentials: true
+      Access-Control-Allow-Origin: "https://www.example.com"
+      Connection: keep-alive
+      Content-Type: application/json
+      Date: "%%today%%"
+fileName: single.api.file
+expression: single/api/file
+method: GET
+name: single.api.file
+isArray": true
+responses:
+  scenario-1:
+    default: true
+    status: 200
+    data:
+      - ng-apimock-dataTemplate: default
+      - another: thing
+    headers:
+      ng-apimock-headersTemplate: default
+  scenario-2:
+    status: 200
+    data:
+      - ng-apimock-dataTemplate: default
+      - ng-apimock-dataTemplate: with-globals
+    headers:
+      ng-apimock-headersTemplate: default
+```
+
+This will output **single.api.file.json**
+
+```js
+{
+  "expression": "single/api/file",
+  "method": "GET",
+  "name": "single.api.file",
+  "isArray": true,
+  "responses": {
+    "scenario-1": {
+      "default": true,
+      "status": 200,
+      "data": [
+        {
+          "some": {
+            "thing": "else"
+          },
+          "another": "thing"
+        },
+        {
+          "another": "thing"
+        }
+      ],
+      "headers": {
+        "Access-Control-Allow-Credentials": true,
+        "Access-Control-Allow-Origin": "https://www.example.com",
+        "Connection": "keep-alive",
+        "Content-Type": "application/json",
+        "Date": "%%today%%"
+      }
+    },
+    "scenario-2": {
+      "status": 200,
+      "data": [
+        {
+          "some": {
+            "thing": "else"
+          },
+          "another": "thing"
+        },
+        {
+          "type": 30,
+          "typeName": "Thirty",
+          "start-event": {
+            "timestamp": "%%yesterday%%",
+            "text": "Thirty something"
+          },
+          "end-event": {
+            "timestamp": "%%today%%",
+            "text": "Thirty something"
+          }
+        }
+      ],
+      "headers": {
+        "Access-Control-Allow-Credentials": true,
+        "Access-Control-Allow-Origin": "https://www.example.com",
+        "Connection": "keep-alive",
+        "Content-Type": "application/json",
+        "Date": "%%today%%"
+      }
+    }
+  }
+}
+```
