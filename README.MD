@@ -4,7 +4,7 @@
 
 [![NPM](https://nodei.co/npm/ng-apimock-data-generator.png)](https://nodei.co/npm/ng-apimock-data-generator/)
 
-> **!!NO MODULE HADE BEEN CREATED YET, THIS IS ONLY A PLAYGROUND!!**
+> **THIS MODULE IS WORK IN PROGRESS AND STILL IN BETA. IF YOU LIKE TO CONTRIBUTE PLEASE ADD A PR**
 
 > Node plugin that provides the ability to easily generate mockdata files for [ng-Apimock](https://github.com/mdasberg/ng-apimock) based on a JSON or YAML template
 
