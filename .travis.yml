@@ -1,0 +1,17 @@
+sudo: false
+language: node_js
+node_js:
+  - "4"
+  - "6"
+  - "7"
+  - "8"
+install:
+- npm install
+script:
+- npm test
+after_script:
+  - npm run coveralls
+notifications:
+  email:
+    on_success: always
+    on_failure: always

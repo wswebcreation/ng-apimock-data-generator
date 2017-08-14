@@ -1,4 +1,14 @@
+#intellij
+.idea
+*.iml
+*.ipr
+*.iws
+
+# Dependency directories
 node_modules/
-.idea/
-coverage/
+
+# Generated for testing
 .tmp/
+
+# Coverage directory used by tools like istanbul
+coverage/

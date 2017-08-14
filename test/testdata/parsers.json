@@ -1,46 +1,433 @@
 {
-  "singleMockData": {
+  "minimalMockData": {
     "content": {
-      "dataTemplate": {},
-      "headersTemplate": {},
-      "mockFiles": [
-        {
-          "fileName": "single.mock.data",
-          "expression": "single\/mock\/data",
-          "method": "GET",
-          "name": "single.mock.data",
-          "isArray": false,
-          "responses": {
-            "foo": {
-              "default": true,
-              "status": 200,
-              "data": {},
-              "headers": {
-                "Access-Control-Allow-Credentials": true,
-                "Content-type": "application/json"
+      "fileName": "minimal.mock.data",
+      "expression": "minimal\/mock\/data",
+      "method": "GET",
+      "isArray": false,
+      "responses": {
+      }
+    },
+    "expected": {
+      "fileName": "minimal.mock.data",
+      "expression": "minimal\/mock\/data",
+      "method": "GET",
+      "isArray": false,
+      "responses": {
+      }
+    }
+  },
+  "minimalScenarioMockData": {
+    "content": {
+      "fileName": "minimal.scenario.mock.data",
+      "expression": "minimal\/scenario\/mock\/data",
+      "method": "GET",
+      "isArray": false,
+      "responses": {
+        "foo": {}
+      }
+    },
+    "expected": {
+      "fileName": "minimal.scenario.mock.data",
+      "expression": "minimal\/scenario\/mock\/data",
+      "method": "GET",
+      "isArray": false,
+      "responses": {
+        "foo": {}
+      }
+    }
+  },
+  "ownDataAndHeadersMockData": {
+    "content": {
+      "fileName": "own.headers.data.mock.data",
+      "expression": "own\/headers\/data\/mock\/data",
+      "method": "GET",
+      "name": "own.headers.data.mock.data",
+      "isArray": false,
+      "responses": {
+        "foo": {
+          "default": true,
+          "status": 200,
+          "data": {
+            "foo": "bar"
+          },
+          "headers": {
+            "Access-Control-Allow-Credentials": true,
+            "Content-type": "application/json"
+          }
+        }
+      }
+    },
+    "expected": {
+      "fileName": "own.headers.data.mock.data",
+      "expression": "own\/headers\/data\/mock\/data",
+      "method": "GET",
+      "name": "own.headers.data.mock.data",
+      "isArray": false,
+      "responses": {
+        "foo": {
+          "default": true,
+          "status": 200,
+          "data": {
+            "foo": "bar"
+          },
+          "headers": {
+            "Access-Control-Allow-Credentials": true,
+            "Content-type": "application/json"
+          }
+        }
+      }
+    }
+  },
+  "dataAndHeadersTemplatesMockData": {
+    "content": {
+      "dataTemplates": {
+        "string": {
+          "string": "foo && bar"
+        },
+        "number": {
+          "number": 12324
+        }
+      },
+      "headersTemplates": {
+        "1": {
+          "Access-Control-Allow-Methods": "PUT",
+          "Content-type": "application/json"
+        },
+        "2": {
+          "Access-Control-Allow-Origin": "https://www.foo.bar",
+          "Content-type": "application/pdf"
+        }
+      },
+      "fileName": "data.headers.templates.mock.data",
+      "expression": "data\/headers\/templates\/mock\/data",
+      "method": "GET",
+      "name": "data.headers.templates.mock.data",
+      "isArray": false,
+      "responses": {
+        "foo": {
+          "data": {
+            "ng-apimock-dataTemplate": "string"
+          },
+          "headers": {
+            "ng-apimock-headersTemplate": "2"
+          }
+        }
+      }
+    },
+    "expected": {
+      "fileName": "data.headers.templates.mock.data",
+      "expression": "data\/headers\/templates\/mock\/data",
+      "method": "GET",
+      "name": "data.headers.templates.mock.data",
+      "isArray": false,
+      "responses": {
+        "foo": {
+          "data": {
+            "string": "foo && bar"
+          },
+          "headers": {
+            "Access-Control-Allow-Origin": "https://www.foo.bar",
+            "Content-type": "application/pdf"
+          }
+        }
+      }
+    }
+  },
+  "overwriteDataAndHeadersTemplatesMockData": {
+    "content": {
+      "dataTemplates": {
+        "string": {
+          "string": "foo && bar"
+        },
+        "number": {
+          "number": 12324
+        }
+      },
+      "headersTemplates": {
+        "1": {
+          "Access-Control-Allow-Methods": "PUT",
+          "Content-type": "application/json"
+        },
+        "2": {
+          "Access-Control-Allow-Origin": "https://www.foo.bar",
+          "Content-type": "application/pdf"
+        }
+      },
+      "fileName": "overwrite.data.headers.templates.mock.data",
+      "expression": "overwrite\/data\/headers\/templates\/mock\/data",
+      "method": "GET",
+      "name": "overwrite.data.headers.templates.mock.data",
+      "isArray": false,
+      "responses": {
+        "foo": {
+          "data": {
+            "ng-apimock-dataTemplate": "string",
+            "string": "a new string"
+          },
+          "headers": {
+            "ng-apimock-headersTemplate": "2",
+            "Access-Control-Allow-Origin": "https://www.foo.bar.com",
+            "Content-type": "application/json"
+          }
+        }
+      }
+    },
+    "expected": {
+      "fileName": "overwrite.data.headers.templates.mock.data",
+      "expression": "overwrite\/data\/headers\/templates\/mock\/data",
+      "method": "GET",
+      "name": "overwrite.data.headers.templates.mock.data",
+      "isArray": false,
+      "responses": {
+        "foo": {
+          "data": {
+            "string": "a new string"
+          },
+          "headers": {
+            "Access-Control-Allow-Origin": "https://www.foo.bar.com",
+            "Content-type": "application/json"
+          }
+        }
+      }
+    }
+  },
+  "dataArrayMockData": {
+    "content": {
+      "dataTemplates": {
+        "string": {
+          "string": "foo && bar"
+        },
+        "number": {
+          "number": 12324
+        }
+      },
+      "headersTemplates": {
+        "1": {
+          "Access-Control-Allow-Methods": "PUT",
+          "Content-type": "application/json"
+        }
+      },
+      "fileName": "data.array.mock.data",
+      "expression": "data\/array\/mock\/data",
+      "method": "GET",
+      "name": "data.array.mock.data",
+      "isArray": true,
+      "responses": {
+        "foo": {
+          "data": [
+            {
+              "ng-apimock-dataTemplate": "string"
+            },
+            {
+              "number": 12324
+            },
+            {
+              "ng-apimock-dataTemplate": "string",
+              "some": {
+                "thing": "else"
               }
             }
+          ],
+          "headers": {
+            "ng-apimock-headersTemplate": "1"
+          }
+        }
+      }
+    },
+    "expected": {
+      "fileName": "data.array.mock.data",
+      "expression": "data\/array\/mock\/data",
+      "method": "GET",
+      "name": "data.array.mock.data",
+      "isArray": true,
+      "responses": {
+        "foo": {
+          "data": [
+            {
+              "string": "foo && bar"
+            },
+            {
+              "number": 12324
+            },
+            {
+              "string": "foo && bar",
+              "some": {
+                "thing": "else"
+              }
+            }
+          ],
+          "headers": {
+            "Access-Control-Allow-Methods": "PUT",
+            "Content-type": "application/json"
+          }
+        }
+      }
+    }
+  },
+  "multipleScenarioMockData": {
+    "content": {
+      "dataTemplates": {
+        "string": {
+          "string": "foo && bar"
+        },
+        "number": {
+          "number": 12324
+        }
+      },
+      "headersTemplates": {
+        "1": {
+          "Access-Control-Allow-Methods": "PUT",
+          "Content-type": "application/json"
+        }
+      },
+      "fileName": "data.array.mock.data",
+      "expression": "data\/array\/mock\/data",
+      "method": "GET",
+      "name": "data.array.mock.data",
+      "isArray": true,
+      "responses": {
+        "bar": {
+          "data": [
+            {
+              "another": "thing"
+            }
+          ],
+          "headers": {
+            "ng-apimock-headersTemplate": "1"
+          }
+        },
+        "foo": {
+          "data": [
+            {
+              "ng-apimock-dataTemplate": "string"
+            },
+            {
+              "number": 12324
+            },
+            {
+              "ng-apimock-dataTemplate": "string",
+              "some": {
+                "thing": "else"
+              }
+            }
+          ],
+          "headers": {
+            "ng-apimock-headersTemplate": "1"
+          }
+        },
+        "foobar": {
+          "data": [
+            {
+              "some": {
+                "thing": {
+                  "else": {
+                    "or": "not"
+                  }
+                }
+              }
+            }
+          ],
+          "headers": {
+            "ng-apimock-headersTemplate": "1"
+          }
+        }
+      }
+    },
+    "expected": {
+      "fileName": "data.array.mock.data",
+      "expression": "data\/array\/mock\/data",
+      "method": "GET",
+      "name": "data.array.mock.data",
+      "isArray": true,
+      "responses": {
+        "bar": {
+          "data": [
+            {
+              "another": "thing"
+            }
+          ],
+          "headers": {
+            "Access-Control-Allow-Methods": "PUT",
+            "Content-type": "application/json"
+          }
+        },
+        "foo": {
+          "data": [
+            {
+              "string": "foo && bar"
+            },
+            {
+              "number": 12324
+            },
+            {
+              "string": "foo && bar",
+              "some": {
+                "thing": "else"
+              }
+            }
+          ],
+          "headers": {
+            "Access-Control-Allow-Methods": "PUT",
+            "Content-type": "application/json"
+          }
+        },
+        "foobar": {
+          "data": [
+            {
+              "some": {
+                "thing": {
+                  "else": {
+                    "or": "not"
+                  }
+                }
+              }
+            }
+          ],
+          "headers": {
+            "Access-Control-Allow-Methods": "PUT",
+            "Content-type": "application/json"
+          }
+        }
+      }
+    }
+  },
+  "multipleMockDataFiles": {
+    "content": {
+      "mockDataFiles": [
+        {
+          "fileName": "multiple.mock.data.files.1",
+          "expression": "multiple\/mock\/data\/files",
+          "method": "GET",
+          "isArray": false,
+          "responses": {
+          }
+        },
+        {
+          "fileName": "multiple.mock.data.files.2",
+          "expression": "multiple\/mock\/data\/files",
+          "method": "GET",
+          "isArray": false,
+          "responses": {
           }
         }
       ]
     },
     "expected": [
       {
-        "fileName": "single.mock.data",
-        "expression": "single\/mock\/data",
+        "fileName": "multiple.mock.data.files.1",
+        "expression": "multiple\/mock\/data\/files",
         "method": "GET",
-        "name": "single.mock.data",
         "isArray": false,
         "responses": {
-          "foo": {
-            "default": true,
-            "status": 200,
-            "data": {},
-            "headers": {
-              "Access-Control-Allow-Credentials": true,
-              "Content-type": "application/json"
-            }
-          }
+        }
+      },
+      {
+        "fileName": "multiple.mock.data.files.2",
+        "expression": "multiple\/mock\/data\/files",
+        "method": "GET",
+        "isArray": false,
+        "responses": {
         }
       }
     ]

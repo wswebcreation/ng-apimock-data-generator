@@ -1,0 +1,10 @@
+fileName: simple.yaml
+expression: simple.yaml.foo
+method: PUT
+isArray: false
+responses:
+  foo:
+    data: !!map
+      bar: cafe
+  bar:
+    status: 200

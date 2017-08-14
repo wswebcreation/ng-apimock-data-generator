@@ -5,6 +5,10 @@ const outputFolder = path.resolve(process.cwd(), '.tmp/generate-json-files/');
 const jsonData = fs.readJsonSync(path.resolve(process.cwd(), 'test/testdata/generate-json-files.json'));
 
 describe('generate-json-files', () => {
+    beforeAll(() =>{
+        fs.removeSync(outputFolder);
+    });
+
     it('should generate multiple json files out of 1 json file', () => {
         generateJsonFile(outputFolder, jsonData);
 

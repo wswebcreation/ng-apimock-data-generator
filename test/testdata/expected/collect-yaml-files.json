@@ -1,12 +1,12 @@
 [
   {
-    "fileName": "another.json",
+    "fileName": "another.yaml",
     "content": {
       "another": "thing"
     }
   },
   {
-    "fileName": "some.json",
+    "fileName": "some.yml",
     "content": {
       "some": "thing"
     }

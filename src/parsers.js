@@ -3,61 +3,64 @@
 const _ = require('lodash');
 
 module.exports = (sourceFile) => {
-    const dataTemplates = sourceFile.content.dataTemplate || sourceFile.content.dataTemplates;
-    const headersTemplates = sourceFile.content.headersTemplate || sourceFile.content.headersTemplates;
+    const dataTemplates = sourceFile.content.dataTemplates || {};
+    const headersTemplates = sourceFile.content.headersTemplates || {};
 
-    return sourceFile.content.mockFiles.map((sourceMockFile) => {
+    return sourceFile.content.mockDataFiles ? sourceFile.content.mockDataFiles.map(parseMockFile) : parseMockFile(sourceFile.content);
+
+    function parseMockFile(mockFile) {
         const newMockData = {
-            fileName: sourceMockFile.fileName,
-            expression: sourceMockFile.expression,
-            method: sourceMockFile.method,
-            name: sourceMockFile.name,
-            isArray: sourceMockFile.isArray,
+            fileName: mockFile.fileName,
+            expression: mockFile.expression,
+            method: mockFile.method,
+            name: mockFile.name || '',
+            isArray: mockFile.isArray,
             responses: {}
         };
 
-        for (const scenario in sourceMockFile.responses) {
+        for (const scenario in mockFile.responses) {
             const parseOptions = {
                 data: dataTemplates,
-                isDataArray: newMockData.isArray,
                 headers: headersTemplates,
-                scenario: sourceMockFile.responses[scenario]
+                isDataArray: newMockData.isArray,
+                scenario: mockFile.responses[scenario]
             };
 
             newMockData.responses[scenario] = parseScenario(parseOptions);
         }
 
+        /* istanbul ignore else */
+        if (newMockData.name === '') {
+            delete newMockData.name;
+        }
+
         return newMockData;
-    });
+    }
+
 
     function parseScenario(parseOptions) {
         const scenario = parseOptions.scenario;
 
-        if (parseOptions.isDataArray) {
+        if (parseOptions.isDataArray && scenario.data) {
             scenario.data = scenario.data.map((scenarioData) =>
-                parseScenarioKeyTemplate('Data', scenarioData, parseOptions.data)
+                parseScenarioKeyTemplate('data', scenarioData, parseOptions.data)
             );
-        } else {
-            scenario.data = parseScenarioKeyTemplate('Data', scenario.data, parseOptions.data);
+        } else if (scenario.data) {
+            scenario.data = parseScenarioKeyTemplate('data', scenario.data, parseOptions.data);
         }
 
-        scenario.headers = parseScenarioKeyTemplate('Headers', scenario.headers, parseOptions.headers);
+        if (scenario.headers) {
+            scenario.headers = parseScenarioKeyTemplate('headers', scenario.headers, parseOptions.headers);
+        }
 
         return scenario;
     }
 
     function parseScenarioKeyTemplate(partialKey, scenarioKeyValue, templates) {
-        if (scenarioKeyValue[`ng-Apimock${partialKey}Template`]) {
-            let scenarioKeyTemplate;
-
-            if (scenarioKeyValue[`ng-Apimock${partialKey}Template`] === 'default') {
-                scenarioKeyTemplate = _.cloneDeep(templates);
-            } else {
-                scenarioKeyTemplate = _.cloneDeep(templates[scenarioKeyValue[`ng-Apimock${partialKey}Template`]]);
-            }
-
+        if (scenarioKeyValue[`ng-apimock-${partialKey}Template`]) {
+            const scenarioKeyTemplate = _.cloneDeep(templates[scenarioKeyValue[`ng-apimock-${partialKey}Template`]]);
             const result = _.merge(scenarioKeyTemplate, scenarioKeyValue);
-            delete result[`ng-Apimock${partialKey}Template`];
+            delete result[`ng-apimock-${partialKey}Template`];
 
             return result;
         }
