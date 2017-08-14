@@ -1,0 +1,15 @@
+{
+  "expression": "simple.yaml.foo",
+  "method": "PUT",
+  "isArray": false,
+  "responses": {
+    "foo": {
+      "data": {
+        "bar": "cafe"
+      }
+    },
+    "bar": {
+      "status": 200
+    }
+  }
+}

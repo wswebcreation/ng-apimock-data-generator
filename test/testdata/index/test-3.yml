@@ -1,0 +1,57 @@
+dataTemplates:
+  string:
+    string: foo && bar
+  number:
+    number: 12324
+headersTemplates:
+  1: !!map
+    Access-Control-Allow-Methods: PUT
+    Content-type: application/json
+  2: !!map
+    Access-Control-Allow-Origin: https://www.foo.bar.yml
+    Content-type: application/pdf
+mockDataFiles:
+  - fileName: foo.bar.1.yml
+    expression: foo.bar.yml.1.foo
+    method: PUT
+    name: foo.foo
+    isArray: true
+    responses:
+      foo:
+        default: true
+        status: 200
+        data:
+          - ng-apimock-dataTemplate: string
+          - ng-apimock-dataTemplate: number
+            bar: foo
+        headers:
+          ng-apimock-headersTemplate: "2"
+      bar:
+        status: 200
+        data:
+          - string: bla foo bar
+        headers: !!map
+          ng-apimock-headersTemplate: "1"
+          Cache-Control: no-cache no-store must-revalidate
+  - fileName: foo.bar.2.yml
+    expression: foo.bar.yml.2.foo
+    method: PUT
+    name: foo.foo
+    isArray: true
+    responses:
+      foo:
+        default: true
+        status: 200
+        data:
+          - ng-apimock-dataTemplate: string
+          - ng-apimock-dataTemplate: number
+            bar: foo
+        headers:
+          ng-apimock-headersTemplate: "2"
+      bar:
+        status: 200
+        data:
+          - string: bla foo bar
+        headers: !!map
+          ng-apimock-headersTemplate: "1"
+          Cache-Control: no-cache no-store must-revalidate

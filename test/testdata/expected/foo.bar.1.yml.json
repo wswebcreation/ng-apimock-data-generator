@@ -1,0 +1,38 @@
+{
+  "expression": "foo.bar.yml.1.foo",
+  "method": "PUT",
+  "name": "foo.foo",
+  "isArray": true,
+  "responses": {
+    "foo": {
+      "default": true,
+      "status": 200,
+      "data": [
+        {
+          "string": "foo && bar"
+        },
+        {
+          "number": 12324,
+          "bar": "foo"
+        }
+      ],
+      "headers": {
+        "Access-Control-Allow-Origin": "https://www.foo.bar.yml",
+        "Content-type": "application/pdf"
+      }
+    },
+    "bar": {
+      "status": 200,
+      "data": [
+        {
+          "string": "bla foo bar"
+        }
+      ],
+      "headers": {
+        "Access-Control-Allow-Methods": "PUT",
+        "Content-type": "application/json",
+        "Cache-Control": "no-cache no-store must-revalidate"
+      }
+    }
+  }
+}

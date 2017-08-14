@@ -1,0 +1,26 @@
+[
+  {
+    "fileName": "another.json",
+    "content": {
+      "another": "thing"
+    }
+  },
+  {
+    "fileName": "another.yaml",
+    "content": {
+      "another": "thing"
+    }
+  },
+  {
+    "fileName": "some.json",
+    "content": {
+      "some": "thing"
+    }
+  },
+  {
+    "fileName": "some.yml",
+    "content": {
+      "some": "thing"
+    }
+  }
+]

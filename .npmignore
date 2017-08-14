@@ -1,0 +1,13 @@
+#test
+test/
+coverage/
+
+#travis
+.travis.yml
+
+#project
+.idea
+.gitignore
+.npmignore
+.tmp/
+node_modules/

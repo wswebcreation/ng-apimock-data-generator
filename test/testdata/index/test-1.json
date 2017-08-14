@@ -1,12 +1,16 @@
 {
-  "dataTemplate": {
-    "number": 1234567890
+  "dataTemplates": {
+    "default": {
+      "number": 1234567890
+    }
   },
-  "headersTemplate": {
-    "Access-Control-Allow-Credentials": true,
-    "Content-type": "application/json"
+  "headersTemplates": {
+    "default": {
+      "Access-Control-Allow-Credentials": true,
+      "Content-type": "application/json"
+    }
   },
-  "mockFiles": [
+  "mockDataFiles": [
     {
       "fileName": "test.mock.data.1.1",
       "expression": "test.1.1",
@@ -30,13 +34,13 @@
               "number": 9876543210
             },
             {
-              "ng-ApimockDataTemplate": "default"
+              "ng-apimock-dataTemplate": "default"
             }
           ],
           "headers": {
-            "ng-ApimockHeadersTemplate": "default",
+            "ng-apimock-headersTemplate": "default",
             "Access-Control-Allow-Credentials": false,
-            "Access-Control-Allow-Headers":"authorization"
+            "Access-Control-Allow-Headers": "authorization"
           }
         }
       }
@@ -56,7 +60,7 @@
             "another": "thing"
           },
           "headers": {
-            "ng-ApimockHeadersTemplate": "default"
+            "ng-apimock-headersTemplate": "default"
           }
         },
         "test-scenario-1.2.2": {
@@ -65,16 +69,16 @@
             "number": 1029384756
           },
           "headers": {
-            "ng-ApimockHeadersTemplate": "default"
+            "ng-apimock-headersTemplate": "default"
           }
         },
         "test-scenario-1.2.3": {
           "status": 200,
           "data": {
-            "ng-ApimockDataTemplate": "default"
+            "ng-apimock-dataTemplate": "default"
           },
           "headers": {
-            "ng-ApimockHeadersTemplate": "default"
+            "ng-apimock-headersTemplate": "default"
           }
         }
       }
